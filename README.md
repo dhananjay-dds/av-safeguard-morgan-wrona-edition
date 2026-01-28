@@ -205,8 +205,8 @@ MIT License - see LICENSE file for details.
 
 - [@dhananjay-dds](https://github.com/dhananjay-dds)
 - [@sawantadhananjay-arch](https://github.com/sawantadhananjay-arch)
-- [@lovable-dev[bot]](https://github.com/apps/lovable-dev)
 
 ---
 
 **Made with  by the AV Safeguard Team**
+
