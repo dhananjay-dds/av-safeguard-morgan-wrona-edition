@@ -211,4 +211,85 @@
     height: 1px;
     background: linear-gradient(90deg, transparent, hsl(46 65% 55% / 0.3), transparent);
   }
-}
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    :root {
+      --radius: 0.375rem;
+    }
+
+    body {
+      font-size: 16px; /* Prevent zoom on mobile */
+    }
+
+    /* Improve touch targets on mobile */
+    button,
+    a,
+    input[type="button"],
+    input[type="submit"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Optimize input fields for mobile */
+    input,
+    textarea,
+    select {
+      font-size: 16px; /* Prevents zoom on iOS focus */
+    }
+
+    /* Improve spacing on mobile */
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    /* Stack layout on mobile */
+    .grid {
+      gap: 0.75rem;
+    }
+
+    /* Reduce card padding on small screens */
+    .card {
+      padding: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    /* Extra small screen optimizations */
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 14px;
+    }
+
+    .text-lg {
+      font-size: 16px;
+    }
+
+    .text-xl {
+      font-size: 18px;
+    }
+
+    /* Single column layout */
+    .grid-cols-2,
+    .grid-cols-3 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* High DPI/Retina display optimization */
+  @media (min-resolution: 2dppx) {
+    .card-dashboard::before {
+      height: 0.5px;
+    }
+  }
+
+  /* Smooth scrolling for better mobile experience */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent layout shift from scrollbar */
+  html {
+    overflow-y: scroll;
+  }
