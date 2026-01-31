@@ -125,7 +125,8 @@ export function generatePDFReport(
     },
   });
 
-  yPos = (doc as any).lastAutoTable.finalY + 15;
+  const _lastY1 = (doc as unknown as { lastAutoTable?: { finalY?: number } }).lastAutoTable?.finalY ?? yPos;
+  yPos = _lastY1 + 15;
 
   // RT60 & Reverb Analysis
   doc.setFontSize(14);
@@ -228,7 +229,8 @@ export function generatePDFReport(
     },
   });
 
-  yPos = (doc as any).lastAutoTable.finalY + 5;
+  const _lastY2 = (doc as unknown as { lastAutoTable?: { finalY?: number } }).lastAutoTable?.finalY ?? yPos;
+  yPos = _lastY2 + 5;
   
   // Intensity Footnote
   doc.setFontSize(7);
@@ -241,7 +243,8 @@ export function generatePDFReport(
     { maxWidth: pageWidth - 40 }
   );
 
-  yPos = (doc as any).lastAutoTable.finalY + 10;
+  const _lastY3 = (doc as unknown as { lastAutoTable?: { finalY?: number } }).lastAutoTable?.finalY ?? yPos;
+  yPos = _lastY3 + 10;
 
   // Check if we need a new page
   if (yPos > 220) {

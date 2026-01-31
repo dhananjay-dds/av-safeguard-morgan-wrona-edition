@@ -7,7 +7,7 @@
 ![Vite](https://img.shields.io/badge/Vite-Latest-purple)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-** Live Demo:** [av-safeguard-v5.vercel.app](https://av-safeguard-v5.vercel.app/)
+**Live Demo:** [av-safeguard-v5.vercel.app](https://av-safeguard-v5.vercel.app/)
 
 ---
 
@@ -188,9 +188,9 @@ src/
 ##  Contributing
 
 1. Fork the repository
-2. Create a feature branch: \git checkout -b feature/your-feature\
-3. Commit changes: \git commit -m "feat: add feature"\
-4. Push to branch: \git push origin feature/your-feature\
+2. Create a feature branch: `git checkout -b feature/your-feature`
+3. Commit changes: `git commit -m "feat: add feature"`
+4. Push to branch: `git push origin feature/your-feature`
 5. Create Pull Request
 
 ---
