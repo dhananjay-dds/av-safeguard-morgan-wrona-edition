@@ -72,10 +72,10 @@ export function RowManager({ rows, onChange }: RowManagerProps) {
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-accent via-accent/80 to-accent/70 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow">
                   <span className="text-accent-foreground font-bold text-lg">{index + 1}</span>
                 </div>
-                <div>
-                  <span className="text-xs text-muted-foreground uppercase tracking-widest">Seating Position</span>
-                  <p className="font-mono text-lg font-bold text-foreground">Row {index + 1}</p>
-                </div>
+                      <div>
+                        <span className="text-xs text-muted-foreground uppercase tracking-widest">Row</span>
+                        <p className="text-xl font-bold text-foreground leading-tight">Row {index + 1}</p>
+                      </div>
               </div>
               {rows.length > 1 && (
                 <Button
@@ -83,6 +83,8 @@ export function RowManager({ rows, onChange }: RowManagerProps) {
                   size="icon"
                   className="h-8 w-8 text-muted-foreground hover:text-destructive transition-colors"
                   onClick={() => removeRow(row.id)}
+                  aria-label={`Remove row ${index + 1}`}
+                  title={`Remove row ${index + 1}`}
                 >
                   <Trash2 className="h-4 w-4" />
                 </Button>
@@ -101,6 +103,7 @@ export function RowManager({ rows, onChange }: RowManagerProps) {
                     updateRow(row.id, "distFromScreen", Number(e.target.value))
                   }
                   className="input-dark font-mono h-9"
+                  aria-label={`Distance for row ${index + 1} in feet`}
                   min={1}
                   step={0.5}
                 />
@@ -117,6 +120,7 @@ export function RowManager({ rows, onChange }: RowManagerProps) {
                     updateRow(row.id, "earHeight", Number(e.target.value))
                   }
                   className="input-dark font-mono h-9"
+                  aria-label={`Ear height for row ${index + 1} in inches`}
                   min={30}
                   max={60}
                 />
@@ -133,6 +137,7 @@ export function RowManager({ rows, onChange }: RowManagerProps) {
                     updateRow(row.id, "riserHeight", Number(e.target.value))
                   }
                   className="input-dark font-mono h-9"
+                  aria-label={`Riser height for row ${index + 1} in inches`}
                   min={0}
                   step={1}
                 />

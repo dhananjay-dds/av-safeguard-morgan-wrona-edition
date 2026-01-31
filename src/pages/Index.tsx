@@ -79,9 +79,9 @@ const Index = () => {
               />
               <div className="h-10 w-px bg-accent/20"></div>
               <div>
-                <h1 className="text-sm font-bold text-foreground tracking-wide">AV SAFEGUARD</h1>
+                <h1 className="text-sm font-bold text-foreground tracking-wide">Morgan Wrona — AV SAFEGUARD</h1>
                 <p className="text-xs text-accent font-mono font-semibold mt-0.5">
-                  V5 • CEDIA/CTA-CEB23 Physics Engine
+                  V5 • Professional Integration Tools
                 </p>
               </div>
             </div>
