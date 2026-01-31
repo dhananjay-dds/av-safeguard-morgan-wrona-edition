@@ -59,17 +59,26 @@ jobs:
         uses: microsoft/playwright-github-action@v1
         with:
           install-deps: true
-          browsers: 'chromium,firefox,webkit'
+          browsers: 'chromium'
 
-      - name: Build and start preview server
+      - name: Build application
+        run: npm run build
+
+      - name: Start preview server in background
         run: |
-          npm run build
-          # start preview on port 8080 in background and wait for it to be ready
-          npm run preview -- --port 8080 &
-          npx wait-on http://localhost:8080
+          nohup npm run preview -- --port 8080 > preview.log 2>&1 &
+          echo $! > server.pid
+
+      - name: Wait for server to be ready
+        run: |
+          npx wait-on http://localhost:8080 --timeout 60000 || (cat preview.log && exit 1)
 
       - name: Run E2E tests
-        run: npx playwright test
+        run: npx playwright test --reporter=html,list
+
+      - name: Show server logs if tests failed
+        if: failure()
+        run: cat preview.log || true
 
       - name: Upload test results
         if: always()
