@@ -85,11 +85,10 @@ jobs:
             exit 1
           fi
 
-      - name: Setup Playwright
-        uses: microsoft/playwright-github-action@v1
-        with:
-          install-deps: true
-          browsers: 'chromium'
+      - name: Install Playwright browsers (no system deps)
+        run: |
+          # Install browser binaries only (avoid system package installation which may fail on newer runners)
+          npx playwright install chromium
 
       - name: Build application
         run: npm run build

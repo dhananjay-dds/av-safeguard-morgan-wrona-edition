@@ -18,6 +18,9 @@
     "type-check": "tsc --noEmit",
     "prepare": "husky install"
   },
+  "scripts": {
+    "vercel:deploy": "vercel deploy --prod --confirm --token=$VERCEL_TOKEN"
+  },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@playwright/test": "^1.57.0",
