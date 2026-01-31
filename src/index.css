@@ -1,31 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
-
 @layer base {
   :root {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 96%;
+    /* Morgan Wrona: Deep Navy (#0C1446) primary, Champagne Gold (#D4AF37) accent – improved readability */
+    --background: 232 60% 10%;
+    --foreground: 210 25% 98%;
 
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 96%;
+    --card: 232 55% 14%;
+    --card-foreground: 210 25% 98%;
 
-    --popover: 222 47% 10%;
-    --popover-foreground: 210 40% 96%;
+    --popover: 232 55% 16%;
+    --popover-foreground: 210 25% 98%;
 
-    --primary: 173 80% 50%;
-    --primary-foreground: 222 47% 6%;
+    --primary: 232 70% 18%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 96%;
+    --secondary: 232 45% 22%;
+    --secondary-foreground: 210 25% 96%;
 
-    --muted: 217 33% 14%;
-    --muted-foreground: 215 20% 55%;
+    --muted: 232 35% 18%;
+    --muted-foreground: 215 18% 72%;
 
-    --accent: 217 33% 20%;
-    --accent-foreground: 210 40% 96%;
+    --accent: 46 65% 55%;
+    --accent-foreground: 232 70% 14%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
@@ -36,43 +37,43 @@
     --warning: 45 93% 50%;
     --warning-foreground: 45 93% 10%;
 
-    --optimal: 173 80% 50%;
+    --optimal: 46 70% 58%;
     --acceptable: 217 91% 60%;
     --fail: 0 84% 60%;
 
-    --border: 217 33% 20%;
-    --input: 217 33% 17%;
-    --ring: 173 80% 50%;
+    --border: 232 40% 28%;
+    --input: 232 45% 22%;
+    --ring: 46 65% 55%;
 
     --radius: 0.5rem;
 
-    --chart-1: 173 80% 50%;
-    --chart-2: 217 91% 60%;
+    --chart-1: 46 65% 52%;
+    --chart-2: 232 83% 35%;
     --chart-3: 45 93% 50%;
     --chart-4: 0 84% 60%;
     --chart-5: 280 65% 60%;
 
-    --sidebar-background: 222 47% 6%;
-    --sidebar-foreground: 210 40% 96%;
-    --sidebar-primary: 173 80% 50%;
-    --sidebar-primary-foreground: 222 47% 6%;
-    --sidebar-accent: 217 33% 17%;
-    --sidebar-accent-foreground: 210 40% 96%;
-    --sidebar-border: 217 33% 20%;
-    --sidebar-ring: 173 80% 50%;
+    --sidebar-background: 232 60% 10%;
+    --sidebar-foreground: 210 25% 96%;
+    --sidebar-primary: 46 65% 55%;
+    --sidebar-primary-foreground: 232 70% 14%;
+    --sidebar-accent: 232 45% 22%;
+    --sidebar-accent-foreground: 210 25% 96%;
+    --sidebar-border: 232 40% 28%;
+    --sidebar-ring: 46 65% 55%;
 
-    /* Gradients */
-    --gradient-glow: linear-gradient(135deg, hsl(173 80% 50% / 0.2), hsl(217 91% 60% / 0.2));
-    --gradient-card: linear-gradient(180deg, hsl(222 47% 10%), hsl(222 47% 8%));
-    --gradient-header: linear-gradient(90deg, hsl(173 80% 50%), hsl(217 91% 60%));
+    /* Gradients – Morgan Wrona navy & champagne gold */
+    --gradient-glow: linear-gradient(135deg, hsl(46 65% 55% / 0.2), hsl(232 60% 30% / 0.2));
+    --gradient-card: linear-gradient(180deg, hsl(232 55% 16%), hsl(232 55% 14%));
+    --gradient-header: linear-gradient(90deg, hsl(46 65% 55%), hsl(46 65% 68%));
     
     /* Shadows */
-    --shadow-glow: 0 0 30px hsl(173 80% 50% / 0.15);
-    --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 30px hsl(46 65% 55% / 0.15);
+    --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.35);
   }
 
   .dark {
-    --background: 222 47% 6%;
+    --background: 232 83% 8%;
     --foreground: 210 40% 96%;
   }
 }
@@ -85,6 +86,9 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .font-mono {
@@ -128,6 +132,11 @@
     @apply bg-input border-border text-foreground placeholder:text-muted-foreground;
   }
 
+  /* Readability: labels and secondary text */
+  .text-readable {
+    @apply text-foreground/90;
+  }
+
   .header-gradient {
     background: var(--gradient-header);
     -webkit-background-clip: text;
@@ -141,10 +150,10 @@
 
   @keyframes pulseGlow {
     0%, 100% {
-      box-shadow: 0 0 20px hsl(173 80% 50% / 0.2);
+      box-shadow: 0 0 20px hsl(46 65% 52% / 0.2);
     }
     50% {
-      box-shadow: 0 0 40px hsl(173 80% 50% / 0.4);
+      box-shadow: 0 0 40px hsl(46 65% 52% / 0.4);
     }
   }
 
@@ -184,5 +193,22 @@
 
   .meter-fill {
     @apply h-full rounded-full transition-all duration-500;
+  }
+
+  /* Enhanced card styling for premium look */
+  .card-dashboard {
+    @apply transition-all duration-300;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-dashboard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(46 65% 55% / 0.3), transparent);
   }
 }

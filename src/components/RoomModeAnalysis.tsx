@@ -65,9 +65,14 @@ export function RoomModeAnalysis({
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Activity className="h-5 w-5 text-primary" />
-          <h3 className="text-lg font-semibold text-foreground">Room Modes & Acoustics</h3>
+        <div className="flex items-center gap-3">
+          <div className="p-2.5 bg-accent/10 rounded-lg border border-accent/20">
+            <Activity className="h-5 w-5 text-accent" />
+          </div>
+          <div>
+            <h3 className="text-xl font-bold text-foreground">Room Modes & Acoustics</h3>
+            <p className="text-xs text-muted-foreground mt-0.5">CEDIA CEB-22 Analysis</p>
+          </div>
         </div>
         <span className="text-xs text-muted-foreground font-mono">
           CEDIA CEB-22

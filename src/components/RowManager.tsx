@@ -42,14 +42,19 @@ export function RowManager({ rows, onChange }: RowManagerProps) {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Users className="h-5 w-5 text-primary" />
-          <h3 className="text-lg font-semibold text-foreground">Seating Rows</h3>
+        <div className="flex items-center gap-3">
+          <div className="p-2.5 bg-accent/10 rounded-lg border border-accent/20">
+            <Users className="h-5 w-5 text-accent" />
+          </div>
+          <div>
+            <h3 className="text-xl font-bold text-foreground">Seating Rows</h3>
+            <p className="text-xs text-muted-foreground mt-0.5">Configure viewing positions</p>
+          </div>
         </div>
         <Button
           onClick={addRow}
           size="sm"
-          className="gap-1"
+          className="gap-1 bg-accent text-accent-foreground hover:bg-accent/90 font-semibold shadow-md"
         >
           <Plus className="h-4 w-4" />
           Add Row
@@ -60,17 +65,23 @@ export function RowManager({ rows, onChange }: RowManagerProps) {
         {rows.map((row, index) => (
           <div
             key={row.id}
-            className="card-dashboard p-4 fade-in"
+            className="card-dashboard p-5 fade-in border-l-4 border-l-accent hover:shadow-lg transition-all duration-300"
           >
-            <div className="flex items-center justify-between mb-3">
-              <span className="font-mono text-sm font-medium text-primary">
-                ROW {index + 1}
-              </span>
+            <div className="flex items-center justify-between mb-4 pb-3 border-b border-accent/20">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-accent via-accent/80 to-accent/70 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow">
+                  <span className="text-accent-foreground font-bold text-lg">{index + 1}</span>
+                </div>
+                <div>
+                  <span className="text-xs text-muted-foreground uppercase tracking-widest">Seating Position</span>
+                  <p className="font-mono text-lg font-bold text-foreground">Row {index + 1}</p>
+                </div>
+              </div>
               {rows.length > 1 && (
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-8 w-8 text-muted-foreground hover:text-destructive"
+                  className="h-8 w-8 text-muted-foreground hover:text-destructive transition-colors"
                   onClick={() => removeRow(row.id)}
                 >
                   <Trash2 className="h-4 w-4" />

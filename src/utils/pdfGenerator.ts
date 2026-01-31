@@ -32,14 +32,14 @@ export function generatePDFReport(
   const rightMargin = 20;
   const contentWidth = pageWidth - leftMargin - rightMargin;
 
-  // Header
-  doc.setFillColor(15, 23, 42); // slate-900
+  // Header – Morgan Wrona Deep Navy (#0C1446)
+  doc.setFillColor(12, 20, 70);
   doc.rect(0, 0, pageWidth, 40, "F");
 
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(24);
   doc.setFont("helvetica", "bold");
-  doc.text("AV SAFEGUARD", 20, 20);
+  doc.text("Morgan Wrona", 20, 20);
 
   doc.setFontSize(10);
   doc.setFont("helvetica", "normal");
@@ -467,10 +467,10 @@ export function generatePDFReport(
     doc.setPage(i);
     doc.setFontSize(8);
     doc.setTextColor(150, 150, 150);
-    doc.text("AV Safeguard V5.1 | CEDIA/CTA-CEB23 Compliant Analysis Engine", 20, 285);
+    doc.text("Morgan Wrona V5.1 | CEDIA/CTA-CEB23 Compliant Analysis Engine", 20, 285);
     doc.text(`Page ${i} of ${pageCount}`, pageWidth - 30, 285);
   }
 
   // Save
-  doc.save(`AV-Safeguard-Report-${new Date().toISOString().split("T")[0]}.pdf`);
+  doc.save(`Morgan-Wrona-Report-${new Date().toISOString().split("T")[0]}.pdf`);
 }

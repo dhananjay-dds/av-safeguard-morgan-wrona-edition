@@ -5,7 +5,6 @@ import {
   Volume2,
   FileText,
   Settings2,
-  Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -69,21 +68,24 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
+      <header className="border-b border-accent/30 bg-gradient-to-r from-card via-card to-card/80 backdrop-blur-md sticky top-0 z-50 shadow-xl">
+        <div className="container mx-auto px-4 py-5">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-primary/10 rounded-lg">
-                <Zap className="h-6 w-6 text-primary" />
-              </div>
+            <div className="flex items-center gap-4">
+              <img
+                src="/morgan-wrona-logo.png"
+                alt="Morgan Wrona"
+                className="h-14 w-auto object-contain drop-shadow-lg"
+              />
+              <div className="h-10 w-px bg-accent/20"></div>
               <div>
-                <h1 className="text-xl font-bold header-gradient">AV SAFEGUARD</h1>
-                <p className="text-xs text-muted-foreground font-mono">
+                <h1 className="text-sm font-bold text-foreground tracking-wide">AV SAFEGUARD</h1>
+                <p className="text-xs text-accent font-mono font-semibold mt-0.5">
                   V5 • CEDIA/CTA-CEB23 Physics Engine
                 </p>
               </div>
             </div>
-            <Button onClick={handleExportPDF} className="gap-2">
+            <Button onClick={handleExportPDF} className="gap-2 bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg font-semibold px-5 py-2 transition-all duration-300 hover:shadow-xl">
               <FileText className="h-4 w-4" />
               Export Report
             </Button>
@@ -121,13 +123,13 @@ const Index = () => {
 
               <TabsContent value="room" className="card-dashboard p-4 mt-4">
                 <div className="space-y-4">
-                  <h3 className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+                  <h3 className="flex items-center gap-2 text-sm font-bold text-accent">
                     <Settings2 className="h-4 w-4" />
                     Room Dimensions
                   </h3>
                   <div className="grid grid-cols-3 gap-3">
                     <div className="space-y-1.5">
-                      <Label className="text-xs text-muted-foreground">
+                      <Label className="text-sm text-foreground/85">
                         Length (ft)
                       </Label>
                       <Input
@@ -140,7 +142,7 @@ const Index = () => {
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <Label className="text-xs text-muted-foreground">
+                      <Label className="text-sm text-foreground/85">
                         Width (ft)
                       </Label>
                       <Input
@@ -153,7 +155,7 @@ const Index = () => {
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <Label className="text-xs text-muted-foreground">
+                      <Label className="text-sm text-foreground/85">
                         Height (ft)
                       </Label>
                       <Input
@@ -171,13 +173,13 @@ const Index = () => {
 
               <TabsContent value="screen" className="card-dashboard p-4 mt-4">
                 <div className="space-y-4">
-                  <h3 className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+                  <h3 className="flex items-center gap-2 text-sm font-bold text-accent">
                     <Monitor className="h-4 w-4" />
                     Screen Configuration
                   </h3>
                   <div className="grid grid-cols-2 gap-3">
                     <div className="space-y-1.5">
-                      <Label className="text-xs text-muted-foreground">
+                      <Label className="text-sm text-foreground/85">
                         Diagonal (in)
                       </Label>
                       <Input
@@ -190,7 +192,7 @@ const Index = () => {
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <Label className="text-xs text-muted-foreground">
+                      <Label className="text-sm text-foreground/85">
                         Aspect Ratio
                       </Label>
                       <Select value={aspectRatio} onValueChange={(v) => setAspectRatio(v as typeof aspectRatio)}>
@@ -206,7 +208,7 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="space-y-1.5">
-                    <Label className="text-xs text-muted-foreground">
+                    <Label className="text-sm text-foreground/85">
                       Bottom Edge Height (in from floor)
                     </Label>
                     <Input
@@ -219,7 +221,7 @@ const Index = () => {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <Label className="text-xs text-muted-foreground">
+                    <Label className="text-sm text-foreground/85">
                       Content Standard
                     </Label>
                     <Select value={contentStandard} onValueChange={(v) => setContentStandard(v as ContentStandard)}>
@@ -233,7 +235,7 @@ const Index = () => {
                     </Select>
                   </div>
                   <div className="space-y-1.5">
-                    <Label className="text-xs text-muted-foreground">
+                    <Label className="text-sm text-foreground/85">
                       Masking Configuration
                     </Label>
                     <Select value={maskingConfig} onValueChange={(v) => setMaskingConfig(v as MaskingConfig)}>
@@ -246,7 +248,7 @@ const Index = () => {
                         <SelectItem value="16:9-no-masking">16:9 (No Masking)</SelectItem>
                       </SelectContent>
                     </Select>
-                    <p className="text-xs text-muted-foreground mt-1">
+                    <p className="text-xs text-foreground/75 mt-1">
                       Masking affects sightline tolerance. No masking = stricter requirements.
                     </p>
                   </div>
@@ -255,12 +257,12 @@ const Index = () => {
 
               <TabsContent value="acoustics" className="card-dashboard p-4 mt-4">
                 <div className="space-y-4">
-                  <h3 className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+                  <h3 className="flex items-center gap-2 text-sm font-bold text-accent">
                     <Volume2 className="h-4 w-4" />
                     Acoustic Properties
                   </h3>
                   <div className="space-y-1.5">
-                    <Label className="text-xs text-muted-foreground">
+                    <Label className="text-sm text-foreground/85">
                       Wall Construction
                     </Label>
                     <Select value={wallConstruction} onValueChange={(v) => setWallConstruction(v as WallConstruction)}>
@@ -276,7 +278,7 @@ const Index = () => {
                       </SelectContent>
                     </Select>
                   </div>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-foreground/85">
                     Wall impedance affects bass response and room mode intensity.
                     Drywall allows bass frequencies to escape, reducing boominess
                     but causing leakage to adjacent rooms.
@@ -316,25 +318,25 @@ const Index = () => {
                 <div className="text-2xl font-bold font-mono text-primary">
                   {rows.length}
                 </div>
-                <div className="text-xs text-muted-foreground">Rows</div>
+                <div className="text-xs text-foreground/85">Rows</div>
               </div>
               <div className="card-dashboard p-4 text-center">
                 <div className="text-2xl font-bold font-mono text-optimal">
                   {analysis.rows.filter((r) => r.overallStatus === "optimal").length}
                 </div>
-                <div className="text-xs text-muted-foreground">Optimal</div>
+                <div className="text-xs text-foreground/85">Optimal</div>
               </div>
               <div className="card-dashboard p-4 text-center">
                 <div className="text-2xl font-bold font-mono text-warning">
                   {analysis.rows.filter((r) => r.overallStatus === "warning").length}
                 </div>
-                <div className="text-xs text-muted-foreground">Warnings</div>
+                <div className="text-xs text-foreground/85">Warnings</div>
               </div>
               <div className="card-dashboard p-4 text-center">
                 <div className="text-2xl font-bold font-mono text-fail">
                   {analysis.rows.filter((r) => r.overallStatus === "fail").length}
                 </div>
-                <div className="text-xs text-muted-foreground">Failures</div>
+                <div className="text-xs text-foreground/85">Failures</div>
               </div>
             </div>
           </div>
@@ -343,8 +345,8 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="border-t border-border mt-8 py-4">
-        <div className="container mx-auto px-4 text-center text-xs text-muted-foreground">
-          <p>AV Safeguard V5 • Consultant-Grade Physics Engine</p>
+        <div className="container mx-auto px-4 text-center text-sm text-foreground/85">
+          <p>Morgan Wrona V5 • Consultant-Grade Physics Engine</p>
           <p className="mt-1">CEDIA/CTA-CEB23 Compliant Analysis • Built for Professional Integrators</p>
         </div>
       </footer>
