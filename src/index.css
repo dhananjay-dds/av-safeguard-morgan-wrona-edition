@@ -293,3 +293,25 @@
   html {
     overflow-y: scroll;
   }
+
+  /* Morgan Wrona branding footer */
+  footer {
+    @apply text-center text-sm text-foreground/85 border-t border-border/50;
+    background: linear-gradient(180deg, transparent, hsl(232 55% 16% / 0.5));
+  }
+
+  /* Header premium styling */
+  header {
+    @apply shadow-lg border-b border-accent/20;
+  }
+
+  /* Morgan Wrona logo sizing */
+  img[alt="Morgan Wrona"] {
+    @apply drop-shadow-lg transition-transform duration-300;
+  }
+
+  img[alt="Morgan Wrona"]:hover {
+    @apply scale-105;
+  }
+
+}
