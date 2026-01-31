@@ -1,0 +1,21 @@
+{
+  "name": "Morgan Wrona | AV Analysis",
+  "short_name": "AV Safeguard",
+  "description": "Acoustic analysis and safeguarding by Morgan Wrona",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0C1446",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/morgan-wrona-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/morgan-wrona-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
