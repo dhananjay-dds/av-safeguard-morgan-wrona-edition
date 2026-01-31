@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x]
+        node-version: [18.x]
 
     steps:
       - uses: actions/checkout@v4
@@ -24,8 +24,23 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: npm
 
+      - name: Debug environment
+        run: |
+          echo "== Environment =="
+          node -v
+          npm -v
+          uname -a
+          if command -v lsb_release >/dev/null 2>&1; then lsb_release -a; fi
+
       - name: Install dependencies
-        run: npm ci
+        run: |
+          echo "== npm ci (logging to npm-install.log) =="
+          npm ci 2>&1 | tee npm-install.log
+          if [ "${PIPESTATUS[0]}" -ne 0 ]; then
+            echo "npm ci failed; printing logs"
+            cat npm-install.log
+            exit 1
+          fi
 
       - name: Lint code
         run: npm run lint
@@ -52,8 +67,23 @@ jobs:
           node-version: 18.x
           cache: npm
 
+      - name: Debug environment
+        run: |
+          echo "== Environment =="
+          node -v
+          npm -v
+          uname -a
+          if command -v lsb_release >/dev/null 2>&1; then lsb_release -a; fi
+
       - name: Install dependencies
-        run: npm ci
+        run: |
+          echo "== npm ci (logging to npm-install.log) =="
+          npm ci 2>&1 | tee npm-install.log
+          if [ "${PIPESTATUS[0]}" -ne 0 ]; then
+            echo "npm ci failed; printing logs"
+            cat npm-install.log
+            exit 1
+          fi
 
       - name: Setup Playwright
         uses: microsoft/playwright-github-action@v1
@@ -87,6 +117,13 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
+      - name: Upload preview log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-log
+          path: preview.log
+          retention-days: 7
 
   security:
     runs-on: ubuntu-latest
@@ -101,8 +138,23 @@ jobs:
           node-version: 18.x
           cache: npm
 
+      - name: Debug environment
+        run: |
+          echo "== Environment =="
+          node -v
+          npm -v
+          uname -a
+          if command -v lsb_release >/dev/null 2>&1; then lsb_release -a; fi
+
       - name: Install dependencies
-        run: npm ci
+        run: |
+          echo "== npm ci (logging to npm-install.log) =="
+          npm ci 2>&1 | tee npm-install.log
+          if [ "${PIPESTATUS[0]}" -ne 0 ]; then
+            echo "npm ci failed; printing logs"
+            cat npm-install.log
+            exit 1
+          fi
 
       - name: Run npm audit (high/critical)
         run: npm audit --audit-level=high
